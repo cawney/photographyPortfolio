@@ -60,6 +60,18 @@ button {
   }
 }
 
+.allign-left {
+  float: left;
+}
+
+.allign-right {
+  float: right;
+}
+
+.hide {
+	display: none;
+}
+
 
 
 /**************************************
@@ -375,13 +387,20 @@ Background Image
 **************************************/
 
 
-
+/*
 .bg-header-img {
-  height: 600px;
-  background: url('../img/words.jpg') no-repeat center center fixed;
-  background-size: cover;
-  
-  
+	height: 600px;
+	background: url('../img/words.jpg') no-repeat center center;
+	background-size: cover;
+	background-size: 100%;
+}
+
+*/
+
+.header-img {
+	position: relative;
+	width: 100%;
+	@include fill-parent;
 }
 
 /******************************************************************************
@@ -600,16 +619,21 @@ Education
 	.education-list {
 		
 		.school {
-		
+			margin-top: 20px;
+			border-top: $black solid 2px;
 			h3 {
-				margin-bottom: -1.125em;
+				font-size: 1.25em;
+				
+		        text-align: left;
+
 			}
 			.graduation {
 				
-				text-align: right;
-				margin-top: -1.125em;
+		        text-align: right;
+				
 			} //.graduation
 			.credentials {
+				
 				margin-left: 20px;
 				font-size: .85em;
 			}
@@ -628,14 +652,49 @@ Portfolio
 #portfolio {
 	@include outer-container(100%);
 	ul {
-    @include clearfix;
-    @include display(flex);
-    @include justify-content(space-around);
-    @include align-items(stretch);
-    @include flex-wrap(wrap);
+		@include clearfix;
+		@include display(flex);
+		@include justify-content(space-around);
+		@include align-items(stretch);
+		@include flex-wrap(wrap);
 		li {
-      @include align-self(stretch);
+			@include align-self(stretch);
+			margin-top: 10px;
 		}
+		img {
+			box-shadow: 3px 3px 3px black;
+			height: 200px;
+			max-width: 200px;
+			max-height: 200px;
+			&:hover {
+				background: blue;	
+			}
+		}
+	}
+}
+
+.lightbox {
+	background: rgba($black, .7);
+
+	
+	
+	//Positions over top of current window
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+
+	p {
+		color: white;
+		text-align: right;
+		margin-right: 20px;
+		margin-top: 20px;
+	}
+
+	.lightbox-content {
+		text-align: center;
+		margin-top: 15%;
 	}
 }
 
@@ -946,7 +1005,7 @@ Footer
   padding-top: 5em;
   padding-bottom: 1em;
 	p {
-		font-weight: 200;
+		font-weight: 300;
 		color: rgba($black, .7);
 	}
 }

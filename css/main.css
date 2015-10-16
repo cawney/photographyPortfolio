@@ -74,6 +74,12 @@ body { width: 100%; margin: 0; position: relative; background: #efefef; }
 button { background: #e13834; font-weight: 200; }
 button:hover { background: #db2520; }
 
+.allign-left { float: left; }
+
+.allign-right { float: right; }
+
+.hide { display: none; }
+
 /**************************************
 Fonts
 **************************************/
@@ -142,7 +148,16 @@ header.navigation ul.submenu li a { background-color: #2b2b2b; display: inline-b
 /**************************************
 Background Image
 **************************************/
-.bg-header-img { height: 600px; background: url("../img/words.jpg") no-repeat center center fixed; background-size: cover; }
+/*
+.bg-header-img {
+	height: 600px;
+	background: url('../img/words.jpg') no-repeat center center;
+	background-size: cover;
+	background-size: 100%;
+}
+
+*/
+.header-img { position: relative; width: 100%; width: 100%; }
 
 /******************************************************************************
 About
@@ -188,8 +203,9 @@ Work
 /******************************************************************************
 Education
 ******************************************************************************/
-#education .education-list .school h3 { margin-bottom: -1.125em; }
-#education .education-list .school .graduation { text-align: right; margin-top: -1.125em; }
+#education .education-list .school { margin-top: 20px; border-top: #444 solid 2px; }
+#education .education-list .school h3 { font-size: 1.25em; text-align: left; }
+#education .education-list .school .graduation { text-align: right; }
 #education .education-list .school .credentials { margin-left: 20px; font-size: .85em; }
 
 /******************************************************************************
@@ -199,7 +215,13 @@ Portfolio
 #portfolio::after { clear: both; content: ""; display: table; }
 #portfolio ul { display: -webkit-box; display: -moz-box; display: box; display: -webkit-flex; display: -moz-flex; display: -ms-flexbox; display: flex; -webkit-box-pack: distribute; -moz-box-pack: distribute; box-pack: distribute; -webkit-justify-content: space-around; -moz-justify-content: space-around; -ms-justify-content: space-around; -o-justify-content: space-around; justify-content: space-around; -ms-flex-pack: distribute; -webkit-box-align: stretch; -moz-box-align: stretch; box-align: stretch; -webkit-align-items: stretch; -moz-align-items: stretch; -ms-align-items: stretch; -o-align-items: stretch; align-items: stretch; -ms-flex-align: stretch; -webkit-box-lines: multiple; -moz-box-lines: multiple; box-lines: multiple; -webkit-flex-wrap: wrap; -moz-flex-wrap: wrap; -ms-flex-wrap: wrap; flex-wrap: wrap; }
 #portfolio ul::after { clear: both; content: ""; display: table; }
-#portfolio ul li { -webkit-align-self: stretch; -moz-align-self: stretch; align-self: stretch; -ms-flex-item-align: stretch; }
+#portfolio ul li { -webkit-align-self: stretch; -moz-align-self: stretch; align-self: stretch; -ms-flex-item-align: stretch; margin-top: 10px; }
+#portfolio ul img { box-shadow: 3px 3px 3px black; height: 200px; max-width: 200px; max-height: 200px; }
+#portfolio ul img:hover { background: blue; }
+
+.lightbox { background: rgba(68, 68, 68, 0.7); position: fixed; top: 0; left: 0; height: 100%; width: 100%; }
+.lightbox p { color: white; text-align: right; margin-right: 20px; margin-top: 20px; }
+.lightbox .lightbox-content { text-align: center; margin-top: 15%; }
 
 /******************************************************************************
 Contact
@@ -280,4 +302,4 @@ Footer
 ******************************************************************************/
 .footer { margin-right: 0; padding-top: 5em; padding-bottom: 1em; }
 .footer::after { clear: both; content: ""; display: table; }
-.footer p { font-weight: 200; color: rgba(68, 68, 68, 0.7); }
+.footer p { font-weight: 300; color: rgba(68, 68, 68, 0.7); }
