@@ -4,13 +4,14 @@ Smooth Scrolling
 **************************************/
 
 
+//Allows you to jump from section to section using the menu
 (function (jQuery) {
   jQuery.mark = {
     jump: function (options) {
       var defaults = {
         selector: 'a.scroll-smooth'
       };
-      if (typeof options == 'string') {
+      if (typeof options === 'string') {
         defaults.selector = options;
       }
 
@@ -37,21 +38,6 @@ jQuery(function(){
 
 
 /**************************************
-Background Header Image
-**************************************/
-
-
-/*
-$(document).ready(function(){
-	console.log("Begin Function");
-	var n = $('.header-img').height();
-	console.log("The height is " + n);
-	console.log("End Function");
-});
-*/
-
-
-/**************************************
 Lazy Load
 **************************************/
 
@@ -59,7 +45,7 @@ Lazy Load
 $(window).scroll(function() {
   //console.log('Lazy Load Running');
    $("p").removeClass("some_class");
-   if($(window).scrollTop() + $(window).height() == $(document).height()) {
+   if($(window).scrollTop() + $(window).height() === $(document).height()) {
        //you are at bottom
     //   console.log('You are at bottom');
        $("<p>").addClass("animated fadeInUp");
@@ -105,38 +91,65 @@ Lightbox
 
 
 $('.portfolio-img').hover(function(){
+  //Works... Might change from 'tada' to something less in your face.
 	$(this).toggleClass("tada"); //Makes imgage shake and draws attention to people to click on it.
 });
 
-$(".portfolio-img").click(function(){ //Makes lightbox appear
 
-	console.log("Begin Function");
-	$(".lightbox").toggleClass('hide'); //Reveals the lightbox //Originally set to hide.
+$('.portfolio-list a').click(function(){
+	console.log('denied!');
+	event.preventDefault(); //Prevents user from following link
+	var imgPath = $(this).attr('href'); //Put inside the link you're following
+	console.log(imgPath); //Testing
+	$('.lightbox').show();
+	$('.lightbox').addClass("rotateIn"); //Makes it look a little nicer
 
-	//Get the image and display it dynamically
-	$('.portfolio-img').ready(function() {
+	//Add the Image to lightbox
+	var img = "<img class='lightbox-img'src='" + imgPath + "'>";
+	var numberImg = $(img).length;
 
-		//Get the image source
-		var imgSrc = $('.portfolio-img').attr('src');
-
-		//Add an image to the lightbox with correct source
-		$('.lightbox-img').append('<img src="' + imgSrc + '">'); //Adds img attribute with source to HTML
-
-	});
 	
-
-	//Button to leave the lightbox when needed.
-	$('button').click(function(){ //Makes the button hide the JS
-		$('.lightbox').addClass('hide');
+	$('.lightbox-content').append(img);
+	//Hide the Lightbox
+	$('.lightbox p').click(function(){
+		$('.lightbox').hide();
+		$('.lightbox-img').remove(); //Removes image so you don't have multiple images showing up overtop of eachother.
 	});
 
-	console.log("End Function");
 });
-//Closes the lightbox
-	// $(".ligthbox>p").click(function(){
-	// 	alert("Testing");
-	// }); 
 
+
+
+/**************************************
+Fading Text appearing
+**************************************/
+
+
+
+//This will be used to make text appear like it is fading up from no the bottom
+//We will use fadeInUp for the animation to make it work.
+
+$(window).scroll(function(){
+    var st = $(this).scrollTop(),
+        winH = $(this).height(),
+        /* you can set this add, 
+        depends on where you want the animation to start
+        for example if the section height is 100 and you set add of 50,
+        that means if 50% of the section is revealed 
+        on the bottom of viewport animate opacity
+        */
+        add = 20;
+    
+    $('div').each(function(){
+        var pos = $(this).position().top;
+        
+        if(st + winH >= pos + add){
+            $(this).stop().animate({opacity:1, marginTop:10},'fast');
+        }else{
+            $(this).stop().animate({opacity:0, marginTop:0},'fast');
+        }
+    });
+});
 
 
 
