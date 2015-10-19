@@ -223,7 +223,7 @@ Portfolio
 #portfolio ul img { box-shadow: 3px 3px 3px black; height: 200px; max-width: 200px; max-height: 200px; }
 #portfolio ul img:hover { background: blue; }
 
-.lightbox { background: rgba(68, 68, 68, 0.7); z-index: 9999; display: none; position: fixed; top: 0; left: 0; height: 100%; width: 100%; }
+.lightbox { background: rgba(68, 68, 68, 0.7); z-index: 9999; display: none; position: fixed; top: 0; left: 0; height: 200%; width: 100%; margin-top: -20px; }
 .lightbox p { color: white; text-align: right; margin-right: 20px; margin-top: 20px; }
 .lightbox .lightbox-content { text-align: center; }
 .lightbox .lightbox-content img { max-width: 75%; margin-left: auto; margin-right: auto; margin-top: 30px; }
