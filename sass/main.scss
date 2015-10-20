@@ -663,11 +663,10 @@ Portfolio
 		li {
 			@include align-self(stretch);
 			margin-top: 10px;
-      a {
-        background: tomato;
-        height: 200px;
-        width: 200px;
-      }
+			a {
+				height: 200px;
+				width: 200px;
+			}
 		}
 		img {
 			box-shadow: 3px 3px 3px black;
@@ -709,8 +708,9 @@ Portfolio
 		
 
 		img {
-			@include outer-container(75%);
-			margin-top: 30px;
+			position: relative;
+			max-width: 75%;
+			margin: 0 auto;
 		}
 
 	}
