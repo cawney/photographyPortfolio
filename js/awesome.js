@@ -145,6 +145,8 @@ $(window).scroll(function(){
 		}
 
 	});
+  //Make a function so that this won't appear if the screen size is mobile
+  
 
 });
 

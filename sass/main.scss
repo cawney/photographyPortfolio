@@ -115,7 +115,9 @@ Grid
 **************************************/
 
 
-
+.span12 {
+  @include fill-parent;
+}
 .span4 {
 	@include span-columns(4);
 }
