@@ -12,7 +12,11 @@ Smooth Scrolling
 **************************************/
 
 
-//Allows you to jump from section to section using the menu
+
+/*
+This is used to have a cool effect of sliding down the parge when a user clicks
+on something in the nav bar. They will be taken down to it using the magic of JS
+*/
 (function (jQuery) {
   jQuery.mark = {
     jump: function (options) {
@@ -48,6 +52,13 @@ jQuery(function(){
 /**************************************
 Mobile Navbar
 **************************************/
+
+
+
+/*
+Makes the nav bar mobile friendly. When you get to a certian screen width the 
+nav bar at the top will change to a mobile version for UX purposes.
+*/
 $(document).ready(function() {
   var menuToggle = $('#js-mobile-menu').unbind();
   $('#js-navigation-menu').removeClass("show");
@@ -69,11 +80,19 @@ Lightbox
 **************************************/
  
 
+
+/*
+Used for the portfolio section of the website. When you click on the portfolio
+it will fade over the page and have the image appear over top of the screen.
+It's easily editable, so jump in and change stuff if you want.
+*/
+
 //Animate image to draw attention and make users want to click it
 $('.portfolio-img').hover(function(){
-	$(this).toggleClass("tada"); 
+	$(this).toggleClass("pulse"); 
 });
 
+//The actual lightbox function
 $('.portfolio-list a').click(function(){
 	event.preventDefault(); //Prevents user from following link
 	var imgPath = $(this).attr('href'); //Put inside the link you're following
@@ -89,7 +108,6 @@ $('.portfolio-list a').click(function(){
 		$('.lightbox').hide();
 		$('.lightbox-img').remove(); //Removes image so you don't have multiple images showing up overtop of eachother.
 	});
-
 });
 
 
@@ -104,31 +122,8 @@ Fading Text appearing
 //We will use fadeInUp for the animation to make it work.
 
 
-// $(window).scroll(function(){
-//     var st = $(this).scrollTop(),
-//         winH = $(this).height(),
-        
-//          you can set this add, 
-//         depends on where you want the animation to start
-//         for example if the section height is 100 and you set add of 50,
-//         that means if 50% of the section is revealed 
-//         on the bottom of viewport animate opacity
-        
-//         add = 20;
-    
-//     $('div').each(function(){
-//         var pos = $(this).position().top;
-        
-//         if(st + winH >= pos + add){
-//             $(this).stop().animate({opacity:1, marginTop:10},'fast');
-//         }else{
-//             $(this).stop().animate({opacity:0, marginTop:0},'fast');
-//         }
-//     });
-// });
-
-
-
+//Leaving off just so it won't bloat up the site, if you like this sort of thing, uncomment it and edit it if you like
+/*
 $(window).scroll(function(){
 	var top = $(this).scrollTop(),
 		windowHeight = $(this).height(),
@@ -145,11 +140,7 @@ $(window).scroll(function(){
 		}
 
 	});
-  //Make a function so that this won't appear if the screen size is mobile
-  
-
 });
-
-
+*/
 
 

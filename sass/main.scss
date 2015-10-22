@@ -78,7 +78,7 @@ button {
 
 
 /**************************************
-Fonts
+Text
 **************************************/
 
 
@@ -108,6 +108,10 @@ h6 {
   }
 }
 
+button {
+  font-weight: bold;
+}
+
 
 
 /**************************************
@@ -116,7 +120,7 @@ Grid
 
 
 .span12 {
-  @include fill-parent;
+  @include outer-container(100%);
 }
 .span4 {
 	@include span-columns(4);

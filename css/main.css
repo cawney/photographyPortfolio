@@ -84,7 +84,7 @@ button:hover { background: #db2520; }
 .hide { display: none; }
 
 /**************************************
-Fonts
+Text
 **************************************/
 .text-center { text-align: center; }
 
@@ -95,10 +95,13 @@ h6 { font-size: 1em; font-style: italic; font-weight: 400; }
 .front-page-wrapper h1 { text-shadow: 5px 2px 5px #444; }
 .front-page-wrapper h2 { text-shadow: 5px 2px 5px #444; }
 
+button { font-weight: bold; }
+
 /**************************************
 Grid
 **************************************/
-.span12 { width: 100%; }
+.span12 { max-width: 100%; margin-left: auto; margin-right: auto; }
+.span12::after { clear: both; content: ""; display: table; }
 
 .span4 { float: left; display: block; margin-right: 2.3576515979%; width: 31.7615656014%; }
 .span4:last-child { margin-right: 0; }
